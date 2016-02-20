@@ -28,7 +28,9 @@ Chocolate.bulkCreate([
 
 //routes
 app.get('/', function(req, res) {
-    res.render('chocolate');
+    Chocolate.findAll({}).then(function(chocolates){
+        res.render('chocolate', {chocolates});
+    });
 });
 
 // database connection via sequelize
